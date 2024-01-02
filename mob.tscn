@@ -13,6 +13,13 @@ script/source = "extends RigidBody2D
 @export var MIN_SPEED : int
 @export var MAX_SPEED : int
 
+var mob_types = [\"fly\", \"walk\", \"swim\"]
+
+func _ready():
+	$AnimatedSprite2D.animation = mob_types[randi() % mob_types.size()]
+	
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xcd0i"]
@@ -59,6 +66,8 @@ height = 90.0
 collision_mask = 0
 gravity_scale = 0.0
 script = SubResource("GDScript_w6en4")
+MIN_SPEED = 150
+MAX_SPEED = 250
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -72,3 +81,5 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kiwoc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
