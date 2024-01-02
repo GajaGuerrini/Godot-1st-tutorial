@@ -48,6 +48,12 @@ func _process(delta):  #delta is the timestamp of the frame
 		$AnimatedSprite2D.flip_h = false
 	
 
-
 func _on_body_entered(body):
-	pass # Replace with function body.
+	hide()
+	emit_signal("hit")
+	call_deferred("set_monitoring", false)
+	
+func start(pos):  # starting position of the player
+	position = pos
+	show() #unhide the player
+	monitoring = true 
