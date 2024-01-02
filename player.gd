@@ -1,4 +1,5 @@
 extends Area2D
+signal hit
 
 @export var SPEED = 400
 var velocity
@@ -6,6 +7,7 @@ var screensize
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hide() # hiding the player at the beginging of the game
 	screensize = get_viewport_rect().size
 
 
