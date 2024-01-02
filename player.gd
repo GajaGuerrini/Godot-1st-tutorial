@@ -47,3 +47,7 @@ func _process(delta):  #delta is the timestamp of the frame
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 		$AnimatedSprite2D.flip_h = false
 	
+
+
+func _on_body_entered(body):
+	pass # Replace with function body.
