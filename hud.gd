@@ -9,7 +9,7 @@ func show_msg(text):
 	
 func game_over():
 	show_msg("Game Over")
-	await($MessagaTimer.timeout)
+	await($MessageTimer.timeout)
 	$StartButton.show()
 	$MessageLabel.text = "Dodge the\nCreeps!"
 	$MessageLabel.show()
