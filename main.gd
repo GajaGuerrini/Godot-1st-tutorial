@@ -37,3 +37,5 @@ func _on_mob_timer_timeout(): #spawning mobs timer
 	direction += randf_range(-PI/4, PI/4)
 	mob.rotation = direction
 	mob.set_linear_velocity(Vector2(randf_range(mob.MIN_SPEED, mob.MAX_SPEED), 0).rotated(direction))
+
+#comentar
