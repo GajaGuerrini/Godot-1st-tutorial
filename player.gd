@@ -27,8 +27,10 @@ func _process(delta):  #delta is the timestamp of the frame
 	if velocity.length() > 0: # animation when we are moving
 		$AnimatedSprite2D.play()
 		velocity = velocity.normalized()*SPEED
+		$Trail.emitting = true
 	else:
 		$AnimatedSprite2D.stop()
+		$Trail.emitting = false
 	
 	position += velocity*delta
 	
